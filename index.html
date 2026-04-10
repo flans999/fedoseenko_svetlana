@@ -24,146 +24,59 @@
     --card-bg: #ffffff;
   }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 15px;
-    line-height: 1.65;
-  }
+  body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.65; }
 
-  /* NAV */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(247,250,249,0.92);
-    backdrop-filter: blur(10px);
+    background: rgba(247,250,249,0.92); backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    display: flex; align-items: center; gap: 1.5rem;
+    padding: 0 2rem; display: flex; align-items: center; gap: 1.5rem;
     height: 52px; overflow-x: auto;
   }
-  nav a {
-    text-decoration: none; font-size: 13px; font-weight: 600;
-    color: var(--text-muted); white-space: nowrap;
-    padding: 4px 0; border-bottom: 2px solid transparent;
-    transition: color .2s, border-color .2s;
-  }
+  nav a { text-decoration: none; font-size: 13px; font-weight: 600; color: var(--text-muted); white-space: nowrap; padding: 4px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
   nav a:hover { color: var(--green); border-bottom-color: var(--green); }
+  .nav-login-btn { margin-left: auto; font-size: 12px; color: var(--text-muted); background: none; border: 0.5px solid var(--border); border-radius: 8px; padding: 4px 12px; cursor: pointer; font-family: 'Nunito', sans-serif; white-space: nowrap; transition: background .15s; flex-shrink: 0; }
+  .nav-login-btn:hover { background: var(--green-light); color: var(--green); }
 
-  /* LAYOUT */
   .page { max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
 
   /* HERO */
-  .hero {
-    background: linear-gradient(135deg, #3d6b5e 0%, #4a7c6f 60%, #5a9282 100%);
-    border-radius: 22px;
-    padding: 2.5rem 2.5rem 2.5rem 2rem;
-    display: flex; align-items: center; gap: 2.5rem;
-    margin-bottom: 2rem; flex-wrap: wrap;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; right: -40px; top: -40px;
-    width: 200px; height: 200px; border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-  }
-  .hero::after {
-    content: ''; position: absolute; right: 60px; bottom: -60px;
-    width: 160px; height: 160px; border-radius: 50%;
-    background: rgba(255,255,255,0.04);
-  }
-  .avatar-wrap { position: relative; flex-shrink: 0; cursor: pointer; }
-  .avatar {
-    width: 148px; height: 148px; border-radius: 50%;
-    background: #7fb3a5;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 44px; color: #e1f5ee;
-    border: 4px solid rgba(255,255,255,0.35);
-    overflow: hidden; transition: opacity .2s;
-  }
+  .hero { background: linear-gradient(135deg, #3d6b5e 0%, #4a7c6f 60%, #5a9282 100%); border-radius: 22px; padding: 2.5rem 2.5rem 2.5rem 2rem; display: flex; align-items: center; gap: 2.5rem; margin-bottom: 2rem; flex-wrap: wrap; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; right: -40px; top: -40px; width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.06); }
+  .hero::after { content: ''; position: absolute; right: 60px; bottom: -60px; width: 160px; height: 160px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+  .avatar-wrap { position: relative; flex-shrink: 0; }
+  .avatar { width: 148px; height: 148px; border-radius: 50%; background: #7fb3a5; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 44px; color: #e1f5ee; border: 4px solid rgba(255,255,255,0.35); overflow: hidden; }
   .avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .avatar-overlay {
-    position: absolute; inset: 0; border-radius: 50%;
-    background: rgba(0,0,0,0.38);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    opacity: 0; transition: opacity .2s; color: #fff; font-size: 11px; text-align: center; gap: 4px;
-  }
+  .avatar-overlay { position: absolute; inset: 0; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity .2s; color: #fff; font-size: 11px; text-align: center; gap: 4px; cursor: pointer; }
   .avatar-overlay svg { width: 22px; height: 22px; }
-  .avatar-wrap:hover .avatar-overlay { opacity: 1; }
-  .hero-text h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px; font-weight: 600; color: #f0fdf8;
-    margin-bottom: 6px; line-height: 1.3;
-  }
+  .avatar-wrap.owner-mode:hover .avatar-overlay { opacity: 1; }
+  .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; color: #f0fdf8; margin-bottom: 6px; line-height: 1.3; }
   .hero-text .subtitle { font-size: 14px; color: #a8d5c9; margin-bottom: 3px; }
-  .hero-badge {
-    display: inline-block; background: rgba(255,255,255,0.18);
-    color: #e1f5ee; font-size: 12px; font-weight: 600;
-    padding: 4px 14px; border-radius: 20px; margin-top: 10px;
-    border: 1px solid rgba(255,255,255,0.25);
-  }
+  .hero-badge { display: inline-block; background: rgba(255,255,255,0.18); color: #e1f5ee; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-top: 10px; border: 1px solid rgba(255,255,255,0.25); }
 
-  /* CREDO */
-  .credo {
-    border-left: 4px solid var(--green);
-    border-radius: 0 14px 14px 0;
-    background: var(--green-pale);
-    padding: 1.1rem 1.5rem;
-    margin-bottom: 2rem;
-    font-family: 'Playfair Display', serif;
-    font-style: italic; font-size: 16px;
-    color: var(--green-dark); line-height: 1.7;
-  }
+  .credo { border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; background: var(--green-pale); padding: 1.1rem 1.5rem; margin-bottom: 2rem; font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: var(--green-dark); line-height: 1.7; }
 
-  /* SECTION LABEL */
-  .section-label {
-    font-size: 11px; font-weight: 700; color: var(--green);
-    text-transform: uppercase; letter-spacing: .1em;
-    margin: 2rem 0 .9rem;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .section-label::after {
-    content: ''; flex: 1; height: 1px; background: var(--border);
-  }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: .1em; margin: 2rem 0 .9rem; display: flex; align-items: center; gap: 8px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  /* GRIDS */
   .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
   .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
 
-  /* CARD */
-  .card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 16px; padding: 1.4rem;
-  }
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 1.4rem; }
   .card-accent { border-top: 3px solid var(--green); }
-  .card h2 {
-    font-size: 11px; font-weight: 700; color: var(--green);
-    text-transform: uppercase; letter-spacing: .08em;
-    margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .card h2 .ic {
-    width: 22px; height: 22px; border-radius: 7px;
-    background: var(--green-light);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; flex-shrink: 0;
-  }
+  .card h2 { font-size: 11px; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+  .card h2 .ic { width: 22px; height: 22px; border-radius: 7px; background: var(--green-light); display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
 
-  /* STAT */
   .stat-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
   .stat-num { font-size: 36px; font-weight: 700; color: var(--green); line-height: 1; font-family: 'Playfair Display', serif; }
   .stat-label { font-size: 14px; color: var(--text-muted); }
 
-  /* TAGS */
   .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag { font-size: 12px; font-weight: 600; padding: 4px 11px; border-radius: 20px; }
   .tag.green { background: var(--green-light); color: var(--green-dark); }
   .tag.amber { background: var(--amber-bg); color: var(--amber-text); }
   .tag.blue { background: var(--blue-bg); color: var(--blue-text); }
 
-  /* LIST ITEMS */
   .list-item { display: flex; gap: 10px; margin-bottom: 9px; font-size: 14px; line-height: 1.5; }
   .list-item:last-child { margin-bottom: 0; }
   .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); margin-top: 8px; flex-shrink: 0; }
@@ -174,34 +87,21 @@
   .develop-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
   .develop-name { font-size: 14px; line-height: 1.45; }
   .develop-type { font-size: 11px; font-weight: 700; color: var(--green); background: var(--green-light); padding: 3px 9px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }
-  .file-zone { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; min-height: 0; }
-  .file-btn {
-    font-size: 12px; font-weight: 600; color: var(--green);
-    background: var(--green-pale);
-    border: 1.5px dashed var(--green-mid);
-    border-radius: 8px; padding: 4px 12px;
-    cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
-    transition: background .15s;
-  }
-  .file-btn:hover { background: var(--green-light); }
-  .file-chip {
-    display: inline-flex; align-items: center; gap: 5px;
-    font-size: 12px; background: var(--green-light); color: var(--green-dark);
-    padding: 3px 9px; border-radius: 8px; max-width: 200px;
-  }
-  .file-chip a { color: var(--green-dark); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 140px; }
+  .file-zone { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+  .upload-btn { font-size: 12px; font-weight: 600; color: var(--green); background: var(--green-pale); border: 1.5px dashed var(--green-mid); border-radius: 8px; padding: 5px 12px; cursor: pointer; display: none; align-items: center; gap: 5px; transition: background .15s; }
+  .upload-btn:hover { background: var(--green-light); }
+  .owner-mode-active .upload-btn { display: inline-flex; }
+  .file-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; background: var(--green-light); color: var(--green-dark); padding: 3px 9px; border-radius: 8px; }
+  .file-chip a { color: var(--green-dark); text-decoration: none; max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .file-chip a:hover { text-decoration: underline; }
-  .file-chip .rm { cursor: pointer; color: var(--green-mid); font-size: 14px; line-height: 1; flex-shrink: 0; }
+  .file-chip .rm { cursor: pointer; color: var(--green-mid); font-size: 14px; line-height: 1; display: none; }
+  .owner-mode-active .file-chip .rm { display: inline; }
   .file-chip .rm:hover { color: #c0392b; }
 
   /* CONTACTS */
   .contact-row { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
   .contact-row:last-child { border-bottom: none; }
-  .contact-icon {
-    width: 32px; height: 32px; border-radius: 9px;
-    background: var(--green-light); display: flex; align-items: center; justify-content: center;
-    font-size: 15px; flex-shrink: 0; font-weight: 700; color: var(--green);
-  }
+  .contact-icon { width: 32px; height: 32px; border-radius: 9px; background: var(--green-light); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; font-weight: 700; color: var(--green); }
   .contact-row a { color: var(--green); text-decoration: none; font-weight: 600; }
   .contact-row a:hover { text-decoration: underline; }
 
@@ -212,37 +112,50 @@
   .award-year { font-size: 12px; font-weight: 700; color: var(--green); min-width: 38px; margin-top: 2px; }
   .award-text { font-size: 14px; line-height: 1.4; }
   .cert-zone { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 7px; }
-  .cert-thumb { width: 58px; height: 58px; border-radius: 9px; object-fit: cover; border: 1.5px solid var(--green-mid); cursor: pointer; transition: transform .15s; }
+  .cert-thumb { width: 60px; height: 60px; border-radius: 9px; object-fit: cover; border: 1.5px solid var(--green-mid); cursor: pointer; transition: transform .15s; }
   .cert-thumb:hover { transform: scale(1.06); }
-  .cert-add {
-    width: 36px; height: 36px; border-radius: 9px;
-    border: 1.5px dashed var(--green-mid); background: var(--green-pale);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; color: var(--green); cursor: pointer; transition: background .15s;
-    font-weight: 400; line-height: 1;
-  }
+  .cert-rm { position: absolute; top: -4px; right: -4px; width: 16px; height: 16px; border-radius: 50%; background: #e74c3c; color: #fff; font-size: 10px; display: none; align-items: center; justify-content: center; cursor: pointer; line-height: 1; }
+  .owner-mode-active .cert-rm { display: flex; }
+  .cert-wrap { position: relative; display: inline-block; }
+  .cert-add { width: 40px; height: 40px; border-radius: 9px; border: 1.5px dashed var(--green-mid); background: var(--green-pale); display: none; align-items: center; justify-content: center; font-size: 20px; color: var(--green); cursor: pointer; transition: background .15s; }
   .cert-add:hover { background: var(--green-light); }
+  .owner-mode-active .cert-add { display: flex; }
 
   /* LIGHTBOX */
-  .lightbox {
-    display: none; position: fixed; inset: 0;
-    background: rgba(0,0,0,0.75); z-index: 9999;
-    align-items: center; justify-content: center;
-  }
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.78); z-index: 9999; align-items: center; justify-content: center; }
   .lightbox.open { display: flex; }
-  .lightbox img { max-width: 90vw; max-height: 88vh; border-radius: 12px; box-shadow: 0 8px 48px rgba(0,0,0,0.5); }
-  .lb-close {
-    position: fixed; top: 18px; right: 22px;
-    font-size: 32px; color: #fff; cursor: pointer; line-height: 1;
-    background: rgba(0,0,0,0.3); width: 40px; height: 40px;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  }
-  .lb-close:hover { background: rgba(0,0,0,0.55); }
+  .lightbox img { max-width: 90vw; max-height: 88vh; border-radius: 12px; }
+  .lb-close { position: fixed; top: 18px; right: 22px; font-size: 28px; color: #fff; cursor: pointer; background: rgba(0,0,0,0.35); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .lb-close:hover { background: rgba(0,0,0,0.6); }
+
+  /* LOGIN MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 8000; align-items: center; justify-content: center; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--card-bg); border-radius: 18px; padding: 2rem; width: 320px; box-shadow: 0 8px 40px rgba(0,0,0,0.15); }
+  .modal h3 { font-size: 17px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+  .modal p { font-size: 13px; color: var(--text-muted); margin-bottom: 1.2rem; }
+  .modal input { width: 100%; border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; font-size: 14px; font-family: 'Nunito', sans-serif; outline: none; margin-bottom: 10px; background: var(--bg); color: var(--text); }
+  .modal input:focus { border-color: var(--green); }
+  .modal-btns { display: flex; gap: 8px; }
+  .btn-primary { flex: 1; background: var(--green); color: #fff; border: none; border-radius: 10px; padding: 10px; font-size: 14px; font-weight: 700; font-family: 'Nunito', sans-serif; cursor: pointer; transition: background .15s; }
+  .btn-primary:hover { background: var(--green-dark); }
+  .btn-secondary { flex: 1; background: var(--green-pale); color: var(--green); border: 1px solid var(--border); border-radius: 10px; padding: 10px; font-size: 14px; font-weight: 600; font-family: 'Nunito', sans-serif; cursor: pointer; }
+  .modal-error { font-size: 12px; color: #c0392b; margin-bottom: 8px; display: none; }
+
+  /* OWNER BADGE */
+  .owner-badge { display: none; background: var(--green); color: #fff; font-size: 12px; font-weight: 700; padding: 3px 12px; border-radius: 20px; margin-left: 8px; }
+  .owner-mode-active .owner-badge { display: inline-block; }
+  .logout-btn { display: none; font-size: 12px; color: #c0392b; background: none; border: 0.5px solid #e0b0b0; border-radius: 8px; padding: 4px 12px; cursor: pointer; font-family: 'Nunito', sans-serif; margin-left: 4px; }
+  .owner-mode-active .logout-btn { display: inline-block; }
+
+  /* UPLOAD SPINNER */
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--green-light); border-top-color: var(--green); border-radius: 50%; animation: spin .6s linear infinite; vertical-align: middle; }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
   @media(max-width: 560px) {
     .hero { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
     .avatar { width: 120px; height: 120px; font-size: 36px; }
-    .stat-num { font-size: 30px; }
+    .stat-num { font-size: 28px; }
     nav { gap: 1rem; padding: 0 1rem; }
   }
 </style>
@@ -256,32 +169,40 @@
   <a href="#achievements">Достижения</a>
   <a href="#resources">Ресурсы</a>
   <a href="#contacts">Контакты</a>
+  <span class="owner-badge">Режим владельца</span>
+  <button class="nav-login-btn" id="login-btn" onclick="openLoginModal()">🔐 Войти</button>
+  <button class="logout-btn" onclick="logout()">Выйти</button>
 </nav>
 
-<div class="page">
-
-  <input type="file" id="avatar-input" accept="image/*" style="display:none">
-  <input type="file" id="cert-input" accept="image/*" multiple style="display:none">
-  <input type="file" id="file-input" multiple style="display:none">
-
-  <div class="lightbox" id="lightbox">
-    <div class="lb-close" id="lb-close">✕</div>
-    <img id="lb-img" src="" alt="">
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal">
+    <h3>Вход для владельца</h3>
+    <p>Введите пароль, чтобы получить доступ к редактированию сайта</p>
+    <input type="password" id="pw-input" placeholder="Пароль" onkeydown="if(event.key==='Enter')doLogin()">
+    <div class="modal-error" id="login-error">Неверный пароль</div>
+    <div class="modal-btns">
+      <button class="btn-secondary" onclick="closeLoginModal()">Отмена</button>
+      <button class="btn-primary" onclick="doLogin()">Войти</button>
+    </div>
   </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-close" id="lb-close">✕</div>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<div class="page" id="main-page">
 
   <!-- HERO -->
   <section id="about">
     <div class="hero">
-      <div class="avatar-wrap" onclick="document.getElementById('avatar-input').click()" title="Загрузить фотографию">
-        <div class="avatar" id="avatar">
-          <span id="avatar-initials">СФ</span>
-        </div>
-        <div class="avatar-overlay">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="17 8 12 3 7 8"/>
-            <line x1="12" y1="3" x2="12" y2="15"/>
-          </svg>
+      <div class="avatar-wrap" id="avatar-wrap">
+        <div class="avatar" id="avatar"><span id="avatar-initials">СФ</span></div>
+        <div class="avatar-overlay" id="avatar-overlay" onclick="triggerAvatarUpload()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
           Загрузить фото
         </div>
       </div>
@@ -293,22 +214,17 @@
       </div>
     </div>
 
-    <div class="credo">
-      «Каждый ребёнок — это целый мир. Моя задача — помочь ему открыть этот мир и поверить в свои силы.»
-    </div>
+    <div class="credo">«Каждый ребёнок — это целый мир. Моя задача — помочь ему открыть этот мир и поверить в свои силы.»</div>
 
     <div class="grid3">
       <div class="card card-accent">
         <h2><span class="ic">⏱</span>Стаж работы</h2>
-        <div class="stat-row">
-          <span class="stat-num">18</span>
-          <span class="stat-label">лет в педагогике</span>
-        </div>
-        <div style="font-size:13px;color:var(--text-muted);line-height:1.5">Все 18 лет — учитель начальных классов</div>
+        <div class="stat-row"><span class="stat-num">18</span><span class="stat-label">лет в педагогике</span></div>
+        <div style="font-size:13px;color:var(--text-muted)">Все 18 лет — учитель начальных классов</div>
       </div>
       <div class="card card-accent">
         <h2><span class="ic">🎓</span>Образование</h2>
-        <div class="list-item"><div class="dot"></div><div>Педагогический университет,<br>факультет начального образования</div></div>
+        <div class="list-item"><div class="dot"></div><div>Педагогический университет, факультет начального образования</div></div>
         <div class="list-item"><div class="dot"></div><div>Диплом с отличием</div></div>
       </div>
       <div class="card card-accent">
@@ -353,27 +269,27 @@
     <div class="develop-item">
       <div class="develop-top"><span class="develop-name">Рабочая программа по математике, 1–4 класс (ФГОС)</span><span class="develop-type">Программа</span></div>
       <div class="file-zone" id="files-d1"></div>
-      <span class="file-btn" onclick="triggerFileUpload('d1')">+ прикрепить файл</span>
+      <span class="upload-btn" onclick="triggerFileUpload('d1')">+ прикрепить файл</span>
     </div>
     <div class="develop-item">
       <div class="develop-top"><span class="develop-name">Технологические карты уроков: «Смысловое чтение», 2–3 класс</span><span class="develop-type">Уроки</span></div>
       <div class="file-zone" id="files-d2"></div>
-      <span class="file-btn" onclick="triggerFileUpload('d2')">+ прикрепить файл</span>
+      <span class="upload-btn" onclick="triggerFileUpload('d2')">+ прикрепить файл</span>
     </div>
     <div class="develop-item">
       <div class="develop-top"><span class="develop-name">Сборник дидактических игр по русскому языку</span><span class="develop-type">Дидактика</span></div>
       <div class="file-zone" id="files-d3"></div>
-      <span class="file-btn" onclick="triggerFileUpload('d3')">+ прикрепить файл</span>
+      <span class="upload-btn" onclick="triggerFileUpload('d3')">+ прикрепить файл</span>
     </div>
     <div class="develop-item">
       <div class="develop-top"><span class="develop-name">Внеурочная программа «Юный исследователь», 1–2 класс</span><span class="develop-type">Внеурочная</span></div>
       <div class="file-zone" id="files-d4"></div>
-      <span class="file-btn" onclick="triggerFileUpload('d4')">+ прикрепить файл</span>
+      <span class="upload-btn" onclick="triggerFileUpload('d4')">+ прикрепить файл</span>
     </div>
     <div class="develop-item">
       <div class="develop-top"><span class="develop-name">Конспекты открытых уроков (опубликованы на Инфоуроке)</span><span class="develop-type">Публикация</span></div>
       <div class="file-zone" id="files-d5"></div>
-      <span class="file-btn" onclick="triggerFileUpload('d5')">+ прикрепить файл</span>
+      <span class="upload-btn" onclick="triggerFileUpload('d5')">+ прикрепить файл</span>
     </div>
   </div>
 
@@ -385,17 +301,17 @@
       <div class="award-item">
         <div class="award-top"><span class="award-year">2023</span><span class="award-text">Грамота Департамента образования «За высокое профессиональное мастерство»</span></div>
         <div class="cert-zone" id="certs-a1"></div>
-        <div class="cert-add" onclick="triggerCertUpload('a1')" title="Добавить фото сертификата">+</div>
+        <div class="cert-add" onclick="triggerCertUpload('a1')" title="Добавить фото">+</div>
       </div>
       <div class="award-item">
         <div class="award-top"><span class="award-year">2021</span><span class="award-text">Победитель муниципального конкурса «Учитель года», номинация «Начальная школа»</span></div>
         <div class="cert-zone" id="certs-a2"></div>
-        <div class="cert-add" onclick="triggerCertUpload('a2')" title="Добавить фото сертификата">+</div>
+        <div class="cert-add" onclick="triggerCertUpload('a2')" title="Добавить фото">+</div>
       </div>
       <div class="award-item">
         <div class="award-top"><span class="award-year">2019</span><span class="award-text">Благодарственное письмо администрации района</span></div>
         <div class="cert-zone" id="certs-a3"></div>
-        <div class="cert-add" onclick="triggerCertUpload('a3')" title="Добавить фото сертификата">+</div>
+        <div class="cert-add" onclick="triggerCertUpload('a3')" title="Добавить фото">+</div>
       </div>
     </div>
     <div class="card">
@@ -403,17 +319,17 @@
       <div class="award-item">
         <div class="award-top"><span class="award-year">2024</span><span class="award-text">3 призёра районной олимпиады по математике</span></div>
         <div class="cert-zone" id="certs-b1"></div>
-        <div class="cert-add" onclick="triggerCertUpload('b1')" title="Добавить фото сертификата">+</div>
+        <div class="cert-add" onclick="triggerCertUpload('b1')" title="Добавить фото">+</div>
       </div>
       <div class="award-item">
         <div class="award-top"><span class="award-year">2023</span><span class="award-text">1 место в конкурсе чтецов «Живое слово»</span></div>
         <div class="cert-zone" id="certs-b2"></div>
-        <div class="cert-add" onclick="triggerCertUpload('b2')" title="Добавить фото сертификата">+</div>
+        <div class="cert-add" onclick="triggerCertUpload('b2')" title="Добавить фото">+</div>
       </div>
       <div class="award-item">
         <div class="award-top"><span class="award-year">2022</span><span class="award-text">Победители проекта «Первые шаги в науку» (городской уровень)</span></div>
         <div class="cert-zone" id="certs-b3"></div>
-        <div class="cert-add" onclick="triggerCertUpload('b3')" title="Добавить фото сертификата">+</div>
+        <div class="cert-add" onclick="triggerCertUpload('b3')" title="Добавить фото">+</div>
       </div>
     </div>
   </div>
@@ -445,98 +361,216 @@
       <a href="tel:+79180756445">+7 (918) 075-64-45</a>
     </div>
     <div class="contact-row">
-      <div class="contact-icon" style="font-size:12px;font-weight:800">MAX</div>
+      <div class="contact-icon" style="font-size:11px">MAX</div>
       <a href="https://max.ru" target="_blank" rel="noopener">Профиль в MAX</a>
     </div>
     <div class="contact-row">
-      <div class="contact-icon" style="font-size:13px;font-weight:800">ВК</div>
+      <div class="contact-icon" style="font-size:13px">ВК</div>
       <a href="https://vk.com" target="_blank" rel="noopener">Страница ВКонтакте</a>
     </div>
     <div class="contact-row">
       <div class="contact-icon">🏫</div>
-      <span>Кабинет №12 &nbsp;·&nbsp; приём: пн–пт 14:00–15:00</span>
+      <span>Кабинет №12 · приём: пн–пт 14:00–15:00</span>
     </div>
   </div>
 
 </div><!-- /page -->
 
 <script>
-  let currentCertTarget = null;
-  let currentFileTarget = null;
+// ==================== CONFIG ====================
+const CLOUDINARY_CLOUD = 'dbwhq4uta';
+const CLOUDINARY_PRESET = 'ml_default';
+const OWNER_PASSWORD = 'svetlana2024'; // ← СМЕНИТЕ ПАРОЛЬ на свой!
+// ================================================
 
-  // Avatar upload
-  document.getElementById('avatar-input').addEventListener('change', function(e) {
+const STORAGE_KEY = 'site_data_v1';
+const SESSION_KEY = 'owner_session';
+
+let ownerMode = false;
+let siteData = { avatar: null, files: {}, certs: {} };
+
+// ---------- INIT ----------
+window.addEventListener('DOMContentLoaded', () => {
+  loadData();
+  renderAll();
+  if (sessionStorage.getItem(SESSION_KEY) === '1') activateOwnerMode();
+});
+
+// ---------- STORAGE ----------
+function saveData() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(siteData));
+}
+function loadData() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (raw) siteData = JSON.parse(raw);
+}
+
+// ---------- RENDER ----------
+function renderAll() {
+  if (siteData.avatar) {
+    document.getElementById('avatar').innerHTML = '<img src="' + siteData.avatar + '" alt="Фото">';
+  }
+  ['d1','d2','d3','d4','d5'].forEach(id => renderFiles(id));
+  ['a1','a2','a3','b1','b2','b3'].forEach(id => renderCerts(id));
+}
+
+function renderFiles(id) {
+  const zone = document.getElementById('files-' + id);
+  if (!zone) return;
+  zone.innerHTML = '';
+  const files = siteData.files[id] || [];
+  files.forEach((f, i) => {
+    const chip = document.createElement('div');
+    chip.className = 'file-chip';
+    chip.innerHTML = '<a href="' + f.url + '" target="_blank" rel="noopener">' + f.name + '</a>' +
+      '<span class="rm" title="Удалить" onclick="removeFile(\'' + id + '\',' + i + ')">×</span>';
+    zone.appendChild(chip);
+  });
+}
+
+function renderCerts(id) {
+  const zone = document.getElementById('certs-' + id);
+  if (!zone) return;
+  zone.innerHTML = '';
+  const certs = siteData.certs[id] || [];
+  certs.forEach((url, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'cert-wrap';
+    wrap.innerHTML = '<img class="cert-thumb" src="' + url + '" alt="Сертификат">' +
+      '<span class="cert-rm" title="Удалить" onclick="removeCert(\'' + id + '\',' + i + ')">×</span>';
+    wrap.querySelector('.cert-thumb').addEventListener('click', () => openLightbox(url));
+    zone.appendChild(wrap);
+  });
+}
+
+// ---------- OWNER MODE ----------
+function openLoginModal() {
+  document.getElementById('login-modal').classList.add('open');
+  setTimeout(() => document.getElementById('pw-input').focus(), 100);
+}
+function closeLoginModal() {
+  document.getElementById('login-modal').classList.remove('open');
+  document.getElementById('pw-input').value = '';
+  document.getElementById('login-error').style.display = 'none';
+}
+function doLogin() {
+  const val = document.getElementById('pw-input').value;
+  if (val === OWNER_PASSWORD) {
+    sessionStorage.setItem(SESSION_KEY, '1');
+    activateOwnerMode();
+    closeLoginModal();
+  } else {
+    document.getElementById('login-error').style.display = 'block';
+  }
+}
+function activateOwnerMode() {
+  ownerMode = true;
+  document.getElementById('main-page').classList.add('owner-mode-active');
+  document.getElementById('avatar-wrap').classList.add('owner-mode');
+  document.getElementById('login-btn').style.display = 'none';
+}
+function logout() {
+  ownerMode = false;
+  sessionStorage.removeItem(SESSION_KEY);
+  document.getElementById('main-page').classList.remove('owner-mode-active');
+  document.getElementById('avatar-wrap').classList.remove('owner-mode');
+  document.getElementById('login-btn').style.display = '';
+}
+
+// ---------- UPLOAD TO CLOUDINARY ----------
+async function uploadToCloudinary(file, resourceType) {
+  const fd = new FormData();
+  fd.append('file', file);
+  fd.append('upload_preset', CLOUDINARY_PRESET);
+  const url = 'https://api.cloudinary.com/v1_1/' + CLOUDINARY_CLOUD + '/' + resourceType + '/upload';
+  const res = await fetch(url, { method: 'POST', body: fd });
+  const data = await res.json();
+  if (data.secure_url) return data.secure_url;
+  throw new Error(data.error?.message || 'Ошибка загрузки');
+}
+
+// ---------- AVATAR ----------
+function triggerAvatarUpload() {
+  if (!ownerMode) return;
+  const inp = document.createElement('input');
+  inp.type = 'file'; inp.accept = 'image/*';
+  inp.onchange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    const url = URL.createObjectURL(file);
-    const av = document.getElementById('avatar');
-    av.innerHTML = '<img src="' + url + '" alt="Фото учителя">';
-  });
+    const overlay = document.getElementById('avatar-overlay');
+    overlay.innerHTML = '<div class="spinner"></div>';
+    try {
+      const url = await uploadToCloudinary(file, 'image');
+      siteData.avatar = url;
+      saveData();
+      document.getElementById('avatar').innerHTML = '<img src="' + url + '" alt="Фото">';
+    } catch(err) { alert('Ошибка: ' + err.message); }
+    overlay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Загрузить фото';
+  };
+  inp.click();
+}
 
-  // Cert upload
-  document.getElementById('cert-input').addEventListener('change', function(e) {
-    if (!currentCertTarget) return;
-    const zone = document.getElementById('certs-' + currentCertTarget);
-    Array.from(e.target.files).forEach(file => {
-      const url = URL.createObjectURL(file);
-      const img = document.createElement('img');
-      img.className = 'cert-thumb';
-      img.src = url;
-      img.title = file.name;
-      img.addEventListener('click', () => openLightbox(url));
-      zone.appendChild(img);
-    });
-    e.target.value = '';
-  });
+// ---------- FILES ----------
+function triggerFileUpload(id) {
+  if (!ownerMode) return;
+  const inp = document.createElement('input');
+  inp.type = 'file'; inp.multiple = true;
+  inp.onchange = async (e) => {
+    const btn = document.querySelector('[onclick="triggerFileUpload(\'' + id + '\')"]');
+    if (btn) btn.innerHTML = '<span class="spinner"></span> Загрузка...';
+    for (const file of Array.from(e.target.files)) {
+      try {
+        const url = await uploadToCloudinary(file, 'raw');
+        if (!siteData.files[id]) siteData.files[id] = [];
+        const name = file.name.length > 26 ? file.name.slice(0,24)+'…' : file.name;
+        siteData.files[id].push({ url, name });
+        saveData();
+        renderFiles(id);
+      } catch(err) { alert('Ошибка загрузки ' + file.name + ': ' + err.message); }
+    }
+    if (btn) btn.innerHTML = '+ прикрепить файл';
+  };
+  inp.click();
+}
 
-  // File upload
-  document.getElementById('file-input').addEventListener('change', function(e) {
-    if (!currentFileTarget) return;
-    const zone = document.getElementById('files-' + currentFileTarget);
-    Array.from(e.target.files).forEach(file => {
-      const chip = document.createElement('div');
-      chip.className = 'file-chip';
-      const url = URL.createObjectURL(file);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = file.name;
-      a.textContent = file.name.length > 24 ? file.name.slice(0, 22) + '…' : file.name;
-      const rm = document.createElement('span');
-      rm.className = 'rm';
-      rm.textContent = '×';
-      rm.title = 'Удалить';
-      rm.addEventListener('click', () => chip.remove());
-      chip.appendChild(a);
-      chip.appendChild(rm);
-      zone.appendChild(chip);
-    });
-    e.target.value = '';
-  });
+function removeFile(id, idx) {
+  if (!ownerMode) return;
+  siteData.files[id].splice(idx, 1);
+  saveData(); renderFiles(id);
+}
 
-  function triggerCertUpload(id) {
-    currentCertTarget = id;
-    document.getElementById('cert-input').click();
-  }
+// ---------- CERTS ----------
+function triggerCertUpload(id) {
+  if (!ownerMode) return;
+  const inp = document.createElement('input');
+  inp.type = 'file'; inp.accept = 'image/*'; inp.multiple = true;
+  inp.onchange = async (e) => {
+    for (const file of Array.from(e.target.files)) {
+      try {
+        const url = await uploadToCloudinary(file, 'image');
+        if (!siteData.certs[id]) siteData.certs[id] = [];
+        siteData.certs[id].push(url);
+        saveData(); renderCerts(id);
+      } catch(err) { alert('Ошибка: ' + err.message); }
+    }
+  };
+  inp.click();
+}
 
-  function triggerFileUpload(id) {
-    currentFileTarget = id;
-    document.getElementById('file-input').click();
-  }
+function removeCert(id, idx) {
+  if (!ownerMode) return;
+  siteData.certs[id].splice(idx, 1);
+  saveData(); renderCerts(id);
+}
 
-  function openLightbox(src) {
-    document.getElementById('lb-img').src = src;
-    document.getElementById('lightbox').classList.add('open');
-  }
-
-  document.getElementById('lb-close').addEventListener('click', () => {
-    document.getElementById('lightbox').classList.remove('open');
-  });
-  document.getElementById('lightbox').addEventListener('click', function(e) {
-    if (e.target === this) this.classList.remove('open');
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
-  });
+// ---------- LIGHTBOX ----------
+function openLightbox(src) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+}
+document.getElementById('lb-close').addEventListener('click', () => document.getElementById('lightbox').classList.remove('open'));
+document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target===this) this.classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key==='Escape') { document.getElementById('lightbox').classList.remove('open'); closeLoginModal(); } });
 </script>
 </body>
 </html>
